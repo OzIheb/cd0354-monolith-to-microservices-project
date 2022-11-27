@@ -22,12 +22,12 @@ jobs:
 
             tmpName="image-$RANDOM"
             docker build $folder --file $folder/Dockerfile --tag $tmpName
-            IMAGE_ID=${{ secrets.DOCKER_REGISTRY_URL }}/$IMAGE_NAME/$IMAGE_NAME
+            IMAGE_ID=${{ secrets.DOCKER_USERNAME }}/$IMAGE_NAME
             VERSION=$(cat $versionFilePath)
 
             echo IMAGE_ID=$IMAGE_ID
             echo VERSION=$VERSION
 
-            docker tag $tmpName $IMAGE_ID:latest
+            docker tag $tmpName $IMAGE_ID:$VERSION
             docker push $IMAGE_ID:$VERSION
           done;
