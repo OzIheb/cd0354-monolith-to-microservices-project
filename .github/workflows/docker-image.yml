@@ -33,5 +33,6 @@ jobs:
             echo IMAGE_ID=$IMAGE_ID
             echo VERSION=$VERSION
 
+            docker tag $tmpName iheboz/$IMAGE_NAME
             docker push iheboz/$IMAGE_NAME
           done;
