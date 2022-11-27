@@ -11,7 +11,10 @@ jobs:
           fetch-depth: 0
 
       - name: Log into registry
-        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login ${{ secrets.DOCKER_REGISTRY_URL }} -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+        run: |
+          USERNAMEE="iheboz"
+          echo USERNAMEE
+          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login ${{ secrets.DOCKER_REGISTRY_URL }} -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
 
       - name: Build and push the images
         run: |
@@ -19,7 +22,6 @@ jobs:
           do
             folder=${versionFilePath%"/VERSION"}
             IMAGE_NAME=${folder##*/}
-            USERNAME="iheboz"
             tmpName="image-$RANDOM"
             docker build $folder --file $folder/Dockerfile --tag $tmpName
             IMAGE_ID=$USERNAME/$IMAGE_NAME
