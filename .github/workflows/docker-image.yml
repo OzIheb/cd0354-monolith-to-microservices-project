@@ -1,11 +1,6 @@
 name: Docker
 
-on:
-  push:
-    branches:
-      - main
-    paths:
-      - './**/VERSION'
+on: [push]
 jobs:
   push:
     runs-on: ubuntu-latest
