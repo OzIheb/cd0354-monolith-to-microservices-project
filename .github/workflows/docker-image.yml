@@ -28,7 +28,9 @@ jobs:
             IMAGE_DOCKER_URL="https://hub.docker.com/repository/docker"
             IMAGE_ID=$USERNAME/$IMAGE_NAME
             VERSION=$(cat $versionFilePath)
+            
 
+            echo "${{ secrets.DOCKER_PASSWORD }}" | docker login ${{ secrets.DOCKER_REGISTRY_URL }} -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
             echo IMAGE_ID=$IMAGE_ID
             echo VERSION=$VERSION
 
