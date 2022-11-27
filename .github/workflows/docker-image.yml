@@ -25,12 +25,11 @@ jobs:
             tmpName="image-$RANDOM"
             USERNAME="iheboz"
             docker build $folder --file $folder/Dockerfile --tag $tmpName
-            IMAGE_DOCKER_URL="https://hub.docker.com/repository/docker"
-            IMAGE_ID=$USERNAME/$IMAGE_NAME
+            IMAGE_DOCKER_URL="hub.docker.com/repository"
+            IMAGE_ID=$IMAGE_DOCKER_URL/$USERNAME/$IMAGE_NAME
             VERSION=$(cat $versionFilePath)
             
 
-            echo "${{ secrets.DOCKER_PASSWORD }}" | docker login ${{ secrets.DOCKER_REGISTRY_URL }} -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
             echo IMAGE_ID=$IMAGE_ID
             echo VERSION=$VERSION
 
