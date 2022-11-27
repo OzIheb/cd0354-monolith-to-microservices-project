@@ -26,7 +26,7 @@ jobs:
             USERNAME="iheboz"
             docker build $folder --file $folder/Dockerfile --tag $tmpName
             IMAGE_DOCKER_URL="hub.docker.com/repository"
-            IMAGE_ID=${{ secrets.DOCKER_REGISTRY_URL }}/$IMAGE_NAME/$IMAGE_NAME
+            IMAGE_ID=${{ secrets.DOCKER_REGISTRY_URL }}/$IMAGE_NAME
             VERSION=$(cat $versionFilePath)
             
 
