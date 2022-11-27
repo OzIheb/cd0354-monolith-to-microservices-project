@@ -19,10 +19,10 @@ jobs:
           do
             folder=${versionFilePath%"/VERSION"}
             IMAGE_NAME=${folder##*/}
-
+            USERNAME="iheboz"
             tmpName="image-$RANDOM"
             docker build $folder --file $folder/Dockerfile --tag $tmpName
-            IMAGE_ID=${{ secrets.DOCKER_USERNAME }}/$IMAGE_NAME
+            IMAGE_ID=$USERNAME/$IMAGE_NAME
             VERSION=$(cat $versionFilePath)
 
             echo IMAGE_ID=$IMAGE_ID
