@@ -34,6 +34,6 @@ jobs:
             echo IMAGE_ID=$IMAGE_ID
             echo VERSION=$VERSION
 
-            docker tag $tmpName $IMAGE_ID
-            docker push $IMAGE_ID
+            sudo docker tag $tmpName $IMAGE_ID
+            sudo docker push $IMAGE_ID
           done;
